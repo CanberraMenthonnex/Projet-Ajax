@@ -17,9 +17,10 @@
         if(isset($_SESSION['Name'])){
             echo "Voici la liste de vos amis";
         }else{
-            echo "<a href=" . $_GET["page"] = "?page=login" . ">Veillez vous connecter</a>";
+            echo "<a href=?page=login>Just do it</a>";
         }
-    
+        
+        
     ?>
 
 

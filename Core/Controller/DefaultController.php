@@ -22,4 +22,12 @@ class DefaultController{
         // $content = ob_get_clean();
         // require ROOT."/Src/View/base.php";
     }
+
+
+    //Cette method check
+    public function checkPostKeys(array $post, array $requiredKeys) : bool {
+        $postKeys = array_keys($post);
+        $diff = array_diff($requiredKeys, $postKeys);
+        return  count($diff) === 0;
+    }
 }

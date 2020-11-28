@@ -41,15 +41,14 @@ if(array_key_exists("page", $_GET)){
             $controller = new SignController();
             $controller->renderSign();
             break;
-        // case 'order':
-        //     $controller = new OrderController();
-        //     $controller->renderOne();
 
-        // case 'saveOrder':
-        //     $controller = new OrderController();
-        //     $controller->saveOrders($_POST);
+        case 'logCheck':
+            $controller = new LoginController();
+            $controller->log();
+            break;
+
         default:
-            echo "acceuil";
+            echo "byte";
             break;
     }
 } else{
