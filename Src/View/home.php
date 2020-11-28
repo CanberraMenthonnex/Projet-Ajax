@@ -18,8 +18,7 @@
             echo "Voici la liste de vos amis";
         }else{
             echo "<a href=?page=login>Just do it</a>";
-        }
-        
+        }       
         
     ?>
 

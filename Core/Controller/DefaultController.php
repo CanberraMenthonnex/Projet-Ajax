@@ -26,8 +26,14 @@ class DefaultController{
 
     //Cette method check
     public function checkPostKeys(array $post, array $requiredKeys) : bool {
-        $postKeys = array_keys($post);
-        $diff = array_diff($requiredKeys, $postKeys);
-        return  count($diff) === 0;
+        if(!array_keys($post, '')){
+            $postKeys = array_keys($post);
+            $diff = array_diff($requiredKeys, $postKeys);
+            
+            return  count($diff) === 0;
+        }else{
+            return false;
+        }
+        
     }
 }
