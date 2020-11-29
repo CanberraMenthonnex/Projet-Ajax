@@ -22,7 +22,7 @@ class SignController extends DefaultController{
 
 
 
-            
+
             $validator = new ValidatorString($email);
             $validator
             ->validateEmail(); 
