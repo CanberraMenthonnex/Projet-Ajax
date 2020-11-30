@@ -1,23 +1,28 @@
 <?php
 
-namespace Model;
+namespace Src\Models;
 
-use Model\Model;
+// use Model\Model;
 
 class UserModel extends Model{
 
-    private $name;
-    private $pwd;
+    protected $email;
+    protected $pwd;
 
-    public function __construct($name, $pwd)
+    public function __construct($email, $pwd)
     {
-        $this->name = $name;
+        $this->email = $email;
         $this->pwd = $pwd;
     }
 
 
+    // public function searchId(){
+    //     $infos = $this->getOne("user", $this->name, "email");
+    //     return $infos;
+    // }
     public function searchId(){
-        $infos = $this->getOne("user", $this->name);
+        $model = new Model();
+        $infos = $model->getOne('user', 'email',$this->email);
         return $infos;
     }
 
@@ -26,7 +31,7 @@ class UserModel extends Model{
      */ 
     public function getName()
     {
-        return $this->name;
+        return $this->email;
     }
 
     /**
@@ -42,9 +47,9 @@ class UserModel extends Model{
      *
      * @return  self
      */ 
-    public function setName($name)
+    public function setName($email)
     {
-        $this->name = $name;
+        $this->email = $email;
 
         return $this;
     }

@@ -3,7 +3,8 @@
 namespace Src\controller;
 
 use Core\Controller\DefaultController;
-use Model\UserModel;
+use Src\Models\UserModel;
+use Core\Tools\Session;
 
 class LoginController extends DefaultController{
 
@@ -21,16 +22,17 @@ class LoginController extends DefaultController{
             $email = $_POST["email"];
             $password = $_POST["password"];
             $userInfos = new UserModel($email, $password);
-            if($userInfos){
-                if($userInfos->getPwd() == $password){
-                    echo 'ok';
+            $compare = $userInfos->searchId();
+            if($compare){
+                if($compare["password"] == $password){
+                    echo "OK";
+                    Session::set($compare["name"],$compare);
+                }else{
+                    echo "mdp faux";
                 }
-                else{
-                    echo 'k0000000000000000000000000000000';
-                }
-            }else{
-                echo 'Pas de user correspondant à ces infos';
             }
+        }else{
+            echo "la";
         }
     }
 }             

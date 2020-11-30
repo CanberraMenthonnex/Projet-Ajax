@@ -1,22 +1,19 @@
 <?php
 
-namespace Models;
+namespace Src\Models;
 
 class Model{
-    private $_db;
-    public function _construct(){
+    protected $_db;
+
+    public function __construct(){
         require ROOT."/Configuration/configDb.php";
-        $this->_db = new \PDO('mysql:host='. $this->host .
-                              ';dbname=' . $this->dbname ,
-                              $this->user, 
-                              $this->pass, 
-                              [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING]
-                            );
+        $this->_db = new \PDO('mysql:host=localhost;dbname=data_base', "root", "root", array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ));
+        
     }
 
 
     public function insert(string $table, array $infos){
-        $request = $this->pdo->prepare("INSERT INTO $table (firstname, lastname, pseudo, password, email, status) VALUES (:firstname, :lastname, :pseudo, :password, :email, :status)");
+        $request = $this->_db->prepare("INSERT INTO $table (firstname, lastname, pseudo, password, email, status) VALUES (:firstname, :lastname, :pseudo, :password, :email, :status)");
         $request->bindValue(":firstname", $_POST['firstname']);
         $request->bindValue(":lastname", $_POST['lastname']);
         $request->bindValue(":pseudo", $_POST['pseudo']);
@@ -26,14 +23,15 @@ class Model{
         $request->execute();
     }
 
-    public function getOne(string $table, string $pseudo) : Array{
-        $request = $this->pdo->query("SELECT * FROM $table WHERE pseudo =" . $pseudo);
 
-        return $result = $request->fetch(\PDO::FETCH_ASSOC);
+    public function getOne(string $table, string $champs, string $infos){
+        $request = $this->_db->query("SELECT * FROM " . $table . "WHERE" . $champs . "=" . $infos); // ???s
+        $result = $request->fetch(\PDO::FETCH_ASSOC);
+        return $result;
     }
 
     public function getAll(string $table, string $champ = null, string $entree = null): Array{
-        $request = $this->pdo->query("SELECT * FROM $table WHERE " . $champ . "=" . $entree);
+        $request = $this->_db->query("SELECT * FROM $table WHERE " . $champ . "=" . $entree);
 
         return $result = $request->fetchAll(\PDO::FETCH_ASSOC);
     }
