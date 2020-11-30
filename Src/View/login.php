@@ -19,6 +19,7 @@
     <?= "<a href=" . $_GET["page"] = "?page=sign" . ">Pas encore de compte</a>"; 
         
     ?>
-    
+
+
 </body>
 </html>

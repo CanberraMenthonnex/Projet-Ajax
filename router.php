@@ -13,6 +13,8 @@ use Src\Controller\{
 
 if(array_key_exists("page", $_GET)){
     switch ($_GET["page"]) {
+
+        // Méthode GET => affichage de page
         case 'addSurvey':
             $controller = new AddSurveyController();
             $controller->renderAddSurvey();
@@ -42,13 +44,19 @@ if(array_key_exists("page", $_GET)){
             $controller->renderSign();
             break;
 
+
+        // Méthode POST => traitement
         case 'logCheck':
             $controller = new LoginController();
             $controller->log();
             break;
+        case 'homesign':
+            $controller = new SignController();
+            $controller->validateSign();
+            break;
 
         default:
-            echo "byte";
+            echo "<====3";
             break;
     }
 } else{
