@@ -15,6 +15,7 @@ class UserModel extends Model{
 
     public function __construct(/*$firstname, $lastname, $pseudo,*/ $email, $pwd)
     {
+        parent::__construct();
         // $this->firstname = $firstname;
         // $this->lastname = $lastname;
         // $this->pseudo = $pseudo;
@@ -28,19 +29,18 @@ class UserModel extends Model{
     //     return $infos;
     // }
     public function searchId(){
-        $model = new Model();
-        $infos = $model->getOne('user', 'email',$this->email);
+        // $model = new Model();
+        $infos = $this->getOne('user', 'email',$this->email);
+
         return $infos;
     }
 
     public function addUser(array $infos){
-        $model = new Model();
-        $model->insert('user', $infos);
+        $this->insert('user', $infos);
     }
 
     public function setConnection(){
-        $model = new Model();
-        $model->update('user', 'status', '1');
+        $this->update('user', 'status', '1');
     }
 
     /**

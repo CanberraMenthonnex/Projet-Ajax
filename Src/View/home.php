@@ -24,7 +24,7 @@ if(isset($session))
     // echo "<pre>";
     
 
-        if(isset($_SESSION['Name'])){
+        if(isset($_SESSION['Name'], $sendFname)){
             echo "Bonjour " . $_SESSION['Name'][0] . ", alias : " . $_SESSION[$sendFname]['pseudo'];
         }else{
             echo "<a href=?page=login>Just do it</a>";

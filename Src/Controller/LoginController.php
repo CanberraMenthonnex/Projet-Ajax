@@ -28,8 +28,7 @@ class LoginController extends DefaultController{
                 if($compare["password"] == $password){
                     Session::set($compare["firstname"],$compare);
                     $session = $_SESSION;
-                    $model = new Model();
-                    $model->update('user', 'status', '1');
+                    $userInfos->update('user', 'status', '1');
                     $sendFname = $compare['firstname'];
                     return $this->render('home', compact("session", "sendFname"));
 

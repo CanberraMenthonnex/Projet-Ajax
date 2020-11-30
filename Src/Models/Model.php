@@ -6,7 +6,7 @@ class Model{
     protected $_db;
 
     public function __construct(){
-        require ROOT."/Configuration/configDb.php";
+        
         $this->_db = new \PDO('mysql:host=localhost;dbname=database', "root", "root", array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ));
         
     }
