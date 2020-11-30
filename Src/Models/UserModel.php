@@ -28,7 +28,7 @@ class UserModel extends Model{
 
     public function searchFriend(){
         $model = new Model();
-        $friends = $model->getAll("friends")
+        $friends = $model->getAll("friends");
     }
 
     /**

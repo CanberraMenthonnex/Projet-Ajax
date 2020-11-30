@@ -7,6 +7,11 @@
 </head>
 <body>
     <h1>Login</h1>
+    <?php
+        if(isset($msgErrorLog)){
+            echo $msgErrorLog;
+        }
+    ?>
 
     <section>
         <form action="?page=logCheck" method="post">

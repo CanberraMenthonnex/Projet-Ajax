@@ -25,14 +25,22 @@ class LoginController extends DefaultController{
             $compare = $userInfos->searchId();
             if($compare){
                 if($compare["password"] == $password){
-                    echo "OK";
-                    Session::set($compare["name"],$compare);
+                    Session::set($compare["firstname"],$compare);
+                    $session = $_SESSION;
+                    // $session = $_SESSION[$compare["firstname"]]; 
+                    // $sessionName = $session['firstname'];
+                    $sendFname = $compare['firstname'];
+                    return $this->render('home', compact("session", "sendFname"));
+
+
                 }else{
-                    echo "mdp faux";
+                    $msgErrorLog = "Identifiant et/ou mot de passe incorrect";
                 }
             }
         }else{
-            echo "la";
+            $msgErrorLog = "Renseignez tous les champs pour vous connecter";
+
         }
+        return $this->render('login', compact("msgErrorLog"));
     }
 }             
