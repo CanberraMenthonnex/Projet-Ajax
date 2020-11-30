@@ -7,7 +7,7 @@ class Model{
 
     public function __construct(){
         require ROOT."/Configuration/configDb.php";
-        $this->_db = new \PDO('mysql:host=localhost;dbname=data_base', "root", "root", array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ));
+        $this->_db = new \PDO('mysql:host=localhost;dbname=database', "root", "root", array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ));
         
     }
 
@@ -25,13 +25,15 @@ class Model{
 
 
     public function getOne(string $table, string $champs, string $infos){
-        $request = $this->_db->query("SELECT * FROM " . $table . "WHERE" . $champs . "=" . $infos); // ???s
+        $request = $this->_db->query("SELECT * FROM $table WHERE $champs =" . "'$infos'"); // ???s
         $result = $request->fetch(\PDO::FETCH_ASSOC);
+
+        
         return $result;
     }
 
     public function getAll(string $table, string $champ = null, string $entree = null): Array{
-        $request = $this->_db->query("SELECT * FROM $table WHERE " . $champ . "=" . $entree);
+        $request = $this->_db->query("SELECT * FROM $table WHERE $champ=" . $entree);
 
         return $result = $request->fetchAll(\PDO::FETCH_ASSOC);
     }
