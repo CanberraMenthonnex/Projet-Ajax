@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 use Src\Controller\{
     AddSurveyController,
@@ -31,10 +32,10 @@ if(array_key_exists("page", $_GET)){
             $controller = new LoginController();
             $controller->renderLogin();
             break;
-        case 'profil':
-            $controller = new ProfilController();
-            $controller->renderProfil();
-            break;
+        // case 'profil':
+        //     $controller = new ProfilController();
+        //     $controller->renderProfil();
+        //     break;
         case 'result':
             $controller = new ResultController();
             $controller->renderResult();
@@ -56,6 +57,10 @@ if(array_key_exists("page", $_GET)){
             $controller->validateSign();
             break;
 
+        case 'profil':
+            $controller = new ProfilController();
+            $controller->displayFriend();
+            break;
         default:
             echo "<====3";
             break;

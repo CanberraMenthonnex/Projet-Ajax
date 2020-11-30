@@ -3,6 +3,8 @@
 namespace Src\controller;
 
 use Core\Controller\DefaultController;
+use Src\Models\UserModel;
+
 
 class ProfilController extends DefaultController{
 
@@ -13,7 +15,13 @@ class ProfilController extends DefaultController{
     }
 
 
-    public function displayFriend($profil){
-        
+    public function displayFriend(){
+
+        $email= $_SESSION["email"];
+        $pwd = $_SESSION["password"];
+
+        $friendList = new UserModel($email,$pwd);
+        $friendDisp = $friendList->findFriend();
+        return $this->render("profil",compact("friendDisp"));
     }
 }

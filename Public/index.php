@@ -7,5 +7,6 @@ define("SERVER", $path);
 
 require ROOT."/Autoloader.php";
 Autoloader::register();
+// require ROOT."/Configuration/configDb.php";
 
 require ROOT."/router.php";

@@ -4,6 +4,7 @@ namespace Src\controller;
 
 use Core\Controller\DefaultController;
 use Core\Tools\ValidatorString;
+use Src\Models\UserModel;
 
 class SignController extends DefaultController{
 
@@ -13,10 +14,11 @@ class SignController extends DefaultController{
     }
 
     public function validateSign(){
-        if($this->checkPostKeys($_POST, ['firstname', 'lastname', 'email', 'password', 'checkPassword']) && ($_POST['password'] === $_POST['checkPassword'])){
+        if($this->checkPostKeys($_POST, ['firstname', 'lastname', 'email', 'pseudo', 'password', 'checkPassword']) && ($_POST['password'] === $_POST['checkPassword'])){
             $firstname = $_POST['firstname'];
             $lastname = $_POST['lastname'];
             $email = $_POST['email'];
+            $pseudo = $_POST['pseudo'];
             $password = $_POST['password'];
 
             $validator = new ValidatorString($firstname);
@@ -40,6 +42,13 @@ class SignController extends DefaultController{
             ->validateEmail(); 
             $validator_error[] = $validator->getError();
 
+            $validator = new ValidatorString($pseudo);
+            $validator
+            ->validateString()
+            ->validateLength(1, 50)
+            ->validateNoSpecialChar();  
+            $validator_error[] = $validator->getError();
+
             $validator = new ValidatorString($password);
             $validator
             ->validatePwd();
@@ -48,8 +57,8 @@ class SignController extends DefaultController{
             $sign_error = array_values(array_filter($sign_error));
 
             if(!$sign_error){
-                // $model = new UserModel();
-                // $model->addUser();
+                $model = new UserModel($email, $password);
+                $model->addUser($_POST);
                 return $this->render('home');   
 
             }else{

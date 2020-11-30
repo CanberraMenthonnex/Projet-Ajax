@@ -16,6 +16,7 @@
     <form action="?page=homesign" method="post">
         <label for="firstname">Ton prénom<input type="text" name ="firstname"></label>
         <label for="lastname">Ton nom<input type="text" name ="lastname"></label>
+        <label for="pseudo">Ton pseudo<input type="text" name ="pseudo"></label>
         <label for="email">Ton email<input type="email" name ="email"></label>
         <label for="password">Ton password<input type="text" name ="password"></label>
         <label for="checkPassword">Confirmes ton password<input type="text" name ="checkPassword"></label>

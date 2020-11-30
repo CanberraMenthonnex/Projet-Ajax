@@ -4,8 +4,8 @@ namespace Core\Tools;
 
 class Session {
 
-    public static function set(string $name, $data) {
-        $_SESSION[$name] = $data;
+    public static function set($data) {
+        $_SESSION = $data;
     }
 
     public static function get(string $name)  {

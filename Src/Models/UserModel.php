@@ -2,15 +2,21 @@
 
 namespace Src\Models;
 
-// use Model\Model;
-
 class UserModel extends Model{
 
+    // protected $firstname;
+    // protected $lastname;
+    // protected $pseudo;
     protected $email;
     protected $pwd;
+    // protected $status = 0;
 
-    public function __construct($email, $pwd)
+    public function __construct(/*$firstname, $lastname, $pseudo,*/ $email, $pwd)
     {
+        parent::__construct();
+        // $this->firstname = $firstname;
+        // $this->lastname = $lastname;
+        // $this->pseudo = $pseudo;
         $this->email = $email;
         $this->pwd = $pwd;
     }
@@ -21,14 +27,22 @@ class UserModel extends Model{
     //     return $infos;
     // }
     public function searchId(){
-        $model = new Model();
-        $infos = $model->getOne('user', 'email',$this->email);
+        // $model = new Model();
+        $infos = $this->getOne('user', 'email',$this->email);
+
         return $infos;
     }
 
-    public function searchFriend(){
-        $model = new Model();
-        $friends = $model->getAll("friends");
+    public function addUser(array $infos){
+        $this->insert('user', $infos);
+    }
+
+    public function setConnection(){
+        $this->update('user', 'status', '1');
+    }
+
+    public function findFriend(){
+        return $this->getAll("friends", 'user_email',$_SESSION["email"]);
     }
 
     /**

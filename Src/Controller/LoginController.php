@@ -4,6 +4,7 @@ namespace Src\controller;
 
 use Core\Controller\DefaultController;
 use Src\Models\UserModel;
+use Src\Models\Model;
 use Core\Tools\Session;
 
 class LoginController extends DefaultController{
@@ -25,10 +26,9 @@ class LoginController extends DefaultController{
             $compare = $userInfos->searchId();
             if($compare){
                 if($compare["password"] == $password){
-                    Session::set($compare["firstname"],$compare);
+                    Session::set($compare);
                     $session = $_SESSION;
-                    // $session = $_SESSION[$compare["firstname"]]; 
-                    // $sessionName = $session['firstname'];
+                    $userInfos->update('user', 'status', '1');
                     $sendFname = $compare['firstname'];
                     return $this->render('home', compact("session", "sendFname"));
 

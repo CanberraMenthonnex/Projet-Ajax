@@ -1,8 +1,4 @@
-<?php session_start();
-$_SESSION = $session;
-$_SESSION['Name'] = array_keys($_SESSION);
 
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,33 +8,22 @@ $_SESSION['Name'] = array_keys($_SESSION);
 </head>
 <body>
 
-    <h1>Home Page</h1>
+    <h1>Hello World</h1>
 
     <?php 
-    
-    // echo "<pre>";    
-    //     var_dump($_SESSION[$sendFname]);
-    // echo "<pre>";
-    
 
-        if(isset($_SESSION['Name'])){
-<<<<<<< HEAD
-            echo "Voici la liste de vos amis";
-            echo "<a href=?page=profil>Votre profil</a"
-    ?>
 
-    <?php
-=======
-            echo "Bonjour " . $_SESSION['Name'][0] . ", alias : " . $_SESSION[$sendFname]['pseudo'];
->>>>>>> 00df4483af5719fd16506ccde31ff946e95980bc
+        if(isset($_SESSION)){
+            echo "Bonjour " . $_SESSION['firstname'] . ", alias : " . $_SESSION['pseudo'];
+            echo "<a href=?page=profil>Votre page profil</a>";
         }else{
-            echo "<a href=?page=login>Connexion</a>";
-        } 
-    ?>    
-        
-    
+            echo "<a href=?page=login>Just do it</a>";
+        }
+
+    ?>
 
 
 
 </body>
 </html>
+

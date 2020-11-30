@@ -7,5 +7,13 @@
 </head>
 <body>
     <h1>Profil</h1>
+
+
+    <?php
+
+        foreach($friendDisp as $friend){
+            echo "<td>" . $friend["friend"];
+        }
+    ?>
 </body>
 </html>
