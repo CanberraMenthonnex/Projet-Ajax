@@ -1,6 +1,9 @@
 <?php session_start();
-$_SESSION = $session;
-$_SESSION['Name'] = array_keys($_SESSION);
+if(isset($session))
+{
+    $_SESSION = $session;
+    $_SESSION['Name'] = array_keys($_SESSION);
+}
 
 ?>
 <!DOCTYPE html>

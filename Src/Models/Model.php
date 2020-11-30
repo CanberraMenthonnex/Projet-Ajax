@@ -14,18 +14,18 @@ class Model{
 
     public function insert(string $table, array $infos){
         $request = $this->_db->prepare("INSERT INTO $table (firstname, lastname, pseudo, password, email, status) VALUES (:firstname, :lastname, :pseudo, :password, :email, :status)");
-        $request->bindValue(":firstname", $_POST['firstname']);
-        $request->bindValue(":lastname", $_POST['lastname']);
-        $request->bindValue(":pseudo", $_POST['pseudo']);
-        $request->bindValue(":password", $_POST['password']);
-        $request->bindValue(":email", $_POST['email']);
-        $request->bindValue(":status", 1);
+        $request->bindValue(":firstname", $infos['firstname']);
+        $request->bindValue(":lastname", $infos['lastname']);
+        $request->bindValue(":pseudo", $infos['pseudo']);
+        $request->bindValue(":password", $infos['password']);
+        $request->bindValue(":email", $infos['email']);
+        $request->bindValue(":status", 0);
         $request->execute();
     }
 
 
     public function getOne(string $table, string $champs, string $infos){
-        $request = $this->_db->query("SELECT * FROM $table WHERE $champs =" . "'$infos'"); // ???s
+        $request = $this->_db->query("SELECT * FROM $table WHERE $champs =" . "'$infos'");
         $result = $request->fetch(\PDO::FETCH_ASSOC);
 
         
@@ -36,5 +36,9 @@ class Model{
         $request = $this->_db->query("SELECT * FROM $table WHERE $champ=" . $entree);
 
         return $result = $request->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function update(string $table, string $champs, string $value){
+       $this->_db->query("UPDATE $table SET $champs=" . "'$value'");
     }
 }

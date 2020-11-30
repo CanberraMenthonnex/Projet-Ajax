@@ -6,11 +6,18 @@ namespace Src\Models;
 
 class UserModel extends Model{
 
+    // protected $firstname;
+    // protected $lastname;
+    // protected $pseudo;
     protected $email;
     protected $pwd;
+    // protected $status = 0;
 
-    public function __construct($email, $pwd)
+    public function __construct(/*$firstname, $lastname, $pseudo,*/ $email, $pwd)
     {
+        // $this->firstname = $firstname;
+        // $this->lastname = $lastname;
+        // $this->pseudo = $pseudo;
         $this->email = $email;
         $this->pwd = $pwd;
     }
@@ -24,6 +31,16 @@ class UserModel extends Model{
         $model = new Model();
         $infos = $model->getOne('user', 'email',$this->email);
         return $infos;
+    }
+
+    public function addUser(array $infos){
+        $model = new Model();
+        $model->insert('user', $infos);
+    }
+
+    public function setConnection(){
+        $model = new Model();
+        $model->update('user', 'status', '1');
     }
 
     /**
