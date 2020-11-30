@@ -26,10 +26,15 @@ class UserModel extends Model{
         return $infos;
     }
 
+    public function searchFriend(){
+        $model = new Model();
+        $friends = $model->getAll("friends")
+    }
+
     /**
      * Get the value of name
      */ 
-    public function getName()
+    public function getEmail()
     {
         return $this->email;
     }

@@ -43,6 +43,7 @@ if(array_key_exists("page", $_GET)){
             $controller = new SignController();
             $controller->renderSign();
             break;
+    
 
 
         // Méthode POST => traitement

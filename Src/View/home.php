@@ -10,16 +10,21 @@
 </head>
 <body>
 
-    <h1>Hello World</h1>
+    <h1>Home Page</h1>
 
     <?php 
         if(isset($_SESSION['Name'])){
             echo "Voici la liste de vos amis";
-        }else{
-            echo "<a href=?page=login>Just do it</a>";
-        }       
-        
+            echo "<a href=?page=profil>Votre profil</a"
     ?>
+
+    <?php
+        }else{
+            echo "<a href=?page=login>Connexion</a>";
+        } 
+    ?>    
+        
+    
 
 
 

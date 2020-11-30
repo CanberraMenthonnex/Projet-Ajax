@@ -11,4 +11,9 @@ class ProfilController extends DefaultController{
         return $defControl->render("profil");
         // require ROOT."/Src/View/Home.php";
     }
+
+
+    public function displayFriend($profil){
+        
+    }
 }

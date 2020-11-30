@@ -35,4 +35,9 @@ class Model{
 
         return $result = $request->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function getFriend(string $userID): Array{
+        $request = $this->_db->query("SELECT user_id2 FROM friends INNER JOIN user ON friends.id = user.user_id WHERE user_id2 =" . $userID);
+        return $result = $request->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
