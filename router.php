@@ -41,6 +41,11 @@ if(array_key_exists("page", $_GET)){
             $controller = new SignController();
             $controller->renderSign();
             break;
+        case 'testdb':
+            $controller = new UserModel();
+            $controller->AddNewUser();
+            break;
+            
         // case 'order':
         //     $controller = new OrderController();
         //     $controller->renderOne();

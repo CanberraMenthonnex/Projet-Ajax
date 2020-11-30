@@ -13,7 +13,21 @@
     <h1>Hello World</h1>
 
     <?php 
-        
+
+
+        function survey(){
+
+            $_db = new PDO('mysql:host=localhost;dbname=database' ,'root', 'root', [PDO::ATTR_ERRMODE=>PDO::ERRMODE_WARNING]);
+            $request = $_db->query("SELECT * FROM survey");
+            $result = $request->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($result as $question){
+                var_dump($question);
+                echo $question["question"];
+                echo $question["user_answers"];
+            }
+        }
+        survey();
+
         if(isset($_SESSION['Name'])){
             echo "Voici la liste de vos amis";
         }else{
