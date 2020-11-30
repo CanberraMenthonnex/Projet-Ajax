@@ -1,7 +1,7 @@
 <?php
 
 $dbConfig = [
-    "host" => "localhost:8888",
+    "host" => "localhost",
     "dbname" => "database",
     "user" => "root",
     "pass" => "root"

@@ -13,7 +13,6 @@
     <h1>Hello World</h1>
 
     <?php 
-        
         if(isset($_SESSION['Name'])){
             echo "Voici la liste de vos amis";
         }else{
