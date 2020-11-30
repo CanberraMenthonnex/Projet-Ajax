@@ -13,6 +13,8 @@ use Src\Controller\{
 
 if(array_key_exists("page", $_GET)){
     switch ($_GET["page"]) {
+
+        // Méthode GET => affichage de page
         case 'addSurvey':
             $controller = new AddSurveyController();
             $controller->renderAddSurvey();
@@ -41,20 +43,20 @@ if(array_key_exists("page", $_GET)){
             $controller = new SignController();
             $controller->renderSign();
             break;
-        case 'testdb':
-            $controller = new UserModel();
-            $controller->AddNewUser();
-            break;
-            
-        // case 'order':
-        //     $controller = new OrderController();
-        //     $controller->renderOne();
 
-        // case 'saveOrder':
-        //     $controller = new OrderController();
-        //     $controller->saveOrders($_POST);
+
+        // Méthode POST => traitement
+        case 'logCheck':
+            $controller = new LoginController();
+            $controller->log();
+            break;
+        case 'homesign':
+            $controller = new SignController();
+            $controller->validateSign();
+            break;
+
         default:
-            echo "acceuil";
+            echo "byte";
             break;
     }
 } else{

@@ -1,7 +1,7 @@
 <?php
 
  
-namespace Tools;
+namespace Core\Tools;
 //["lastname", "firstname", "email", "pwd", "birth_date", "adress"]
 
 class ValidatorString{
@@ -28,16 +28,9 @@ class ValidatorString{
         return $this;
     }
 
-    public function validatePhoneNumber(){
-        if(!preg_match("#^0[1-9]([-. ]?[0-9]{2}){4}$#", $this->input)){
-            $this->error[]= "Numéro de téléphone incorrecte";
-        } 
-        return $this;      
-    }
-
     public function validateLength(int $min, int $max){ 
         if(!(strlen($this->input) <= $max && strlen($this->input) >= $min)){
-            $this->error[]= "Entrée incorrecte";
+            $this->error[]= "Entrée trop courte ou trop longue";
         }
         return $this;
     }
@@ -50,14 +43,7 @@ class ValidatorString{
     }
 
     public function validateNoSpecialChar(){
-        if(!ctype_alpha(str_replace([' ','-'], '', $this->input))){  
-            $this->error[]= "Les caractères spéciaux ne sont pas autorisés"; 
-        }
-        return $this;
-    }
-
-    public function validateNoSpecialCharButWithNumber(){
-        if(!ctype_alnum(str_replace([' ','-'], '', $this->input))){  
+        if(!ctype_alpha(str_replace([' ','-', '/', '\"'], '', $this->input))){  
             $this->error[]= "Les caractères spéciaux ne sont pas autorisés"; 
         }
         return $this;
@@ -72,9 +58,16 @@ class ValidatorString{
     }
 
     public function validatePwd(){
-        if(!(preg_match('#[a-z]#', $this->input) && (preg_match('#[A-Z]#', $this->input)) && (preg_match('#[_?/:!$]#' , $this->input)) || (preg_match('#[0-9]#', $this->input)))){
+        if(!(((preg_match('#[a-z]#', $this->input)) || (preg_match('#[A-Z]#', $this->input))) && (preg_match('#[0-9]#', $this->input)))){
             $this->error[]= "Votre mot de passe est incorrect";
         }
         return $this;
     }
+
+    protected function checkPostKeys(array $post, array $requiredKeys) : bool {
+        $postKeys = array_keys($post);
+        $diff = array_diff($requiredKeys, $postKeys);
+        return  count($diff) === 0;
+    }
+
 }
