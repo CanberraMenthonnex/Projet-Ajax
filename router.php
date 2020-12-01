@@ -46,7 +46,6 @@ if(array_key_exists("page", $_GET)){
             break;
     
 
-
         // Méthode POST => traitement
         case 'logCheck':
             $controller = new LoginController();
@@ -61,8 +60,28 @@ if(array_key_exists("page", $_GET)){
             $controller = new ProfilController();
             $controller->displayFriend();
             break;
+
+        //survey
+
+        case 'sendSurvey':
+            $controller = new AddSurveyController();
+            $controller->postServey($_POST);
+            break;
+        
+        //chat
+
+        case 'postMessage':
+            $controller = new ResultController();
+            $controller->sendMessage($_POST);
+            break;
+
+        case 'getMessage':
+            $controller = new ResultController();
+            $controller->getMessage();
+            break;
+
         default:
-            echo "<====3";
+            echo "Error 404: vous avez perdu 0.404 de QI";
             break;
     }
 } else{

@@ -8,7 +8,6 @@ class Model{
     public function __construct(){
         
         $this->_db = new \PDO('mysql:host=localhost;dbname=data_base', "root", "root", array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ));
-        
     }
 
 
