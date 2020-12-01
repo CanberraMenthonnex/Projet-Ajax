@@ -10,9 +10,9 @@
 
 
     <?php
-
+        echo "<h2>Votre liste d'amis : <br></h2>";
         foreach($friendDisp as $friend){
-            echo "<td>" . $friend["friend"];
+            echo $friend["friend"] . "<br>";
         }
     ?>
 </body>
