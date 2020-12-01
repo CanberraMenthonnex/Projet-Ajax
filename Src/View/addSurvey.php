@@ -10,16 +10,14 @@
     <main>
         <h1>Add Survey</h1>
 
-        <form action="" method="post">
+        <form id="newSurvey" action="" method="post">
             <label for="">Votre question<input type="text" name="question" id=""></label>
-            <select name="nbA" id="">
-                <option>-- Nombre de réponses --</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
+            <label for="">Choix: 1<input type="text" name="question" id="A1"></label>
+            <label for="">Choix: 2<input type="text" name="question" id="A2"></label>
+            <label for="">Choix: 3<input type="text" name="question" id="A3"></label>
+            <label for="">Choix: 4<input type="text" name="question" id="A4"></label>
 
-            <button id="submit" type="submit">Créer</button>
+            <button id="sendForm" type="submit">Créer</button>
         </form>
 
         <button id="resetButton">Reset</button>

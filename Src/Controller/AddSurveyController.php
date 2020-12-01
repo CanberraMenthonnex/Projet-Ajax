@@ -3,6 +3,7 @@
 namespace Src\controller;
 
 use Core\Controller\DefaultController;
+use Src\Models\SurveyModel;
 
 class AddSurveyController extends DefaultController{
     public function renderAddSurvey(){
@@ -11,11 +12,10 @@ class AddSurveyController extends DefaultController{
         // require ROOT."/Src/View/Home.php";
     }
 
-    public function postServey($data)
-    {
-        
-        $prepare = $this->pdo->prepare("INSERT INTO survey (content) VALUES (:content)");
-        $prepare->execute($data);
+    public function postSurvey($data)
+    {   
+        $envoi = new SurveyModel();
+        $envoi->sendSurvey($data);
         echo json_encode("");
     }
 }

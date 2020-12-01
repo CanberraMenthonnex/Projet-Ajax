@@ -8,6 +8,8 @@
 <body>
     <h1>Profil</h1>
 
+    <h2>Lances toi et ajoute un sondage</h2>
+    <a href="?page=addSurvey">Hello there</a>
 
     <?php
         echo "<h2>Votre liste d'amis : <br></h2>";
