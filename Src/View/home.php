@@ -8,12 +8,15 @@
     <title>Home Page</title>
 </head>
 <body>
-
+    
 
     <?php 
 
 
-        if(isset($_SESSION['name'])){
+        if(isset($_SESSION['firstname'])){
+        echo "<button id='deco'> deco </button> ";  
+            
+        
             echo "Bonjour " . $_SESSION['firstname'] . ", alias : " . $_SESSION['pseudo'];
             echo "<a href=?page=profil>Votre page profil</a>";
         }else{
@@ -21,6 +24,9 @@
         }
 
     ?>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/chat.js"></script>
 </body>
+
 </html>
 

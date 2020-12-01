@@ -39,9 +39,16 @@ class SurveyModel extends Model{
     }
 
     public function prepareSendingMail(){
-        $infos = $this->getAll('user', $_SESSION["email"]);
-        foreach ($infos as $friend){
-            $this->sendMail($friend);
+        $moi = $_SESSION['email'];
+        $request = $this->_db->query("SELECT friend FROM friends WHERE user_email =" . "'$moi'");
+    
+            $result = $request->fetchAll(\PDO::FETCH_ASSOC);
+            $result2 = array_values($result);
+
+        foreach ($result2 as $friend){ 
+            print_r($friend['friend']);
+
+            $this->sendMail($friend['friend']);
         }
     }
     public function sendMail($user){
@@ -49,8 +56,8 @@ class SurveyModel extends Model{
         $subject = 'Nouveau sondage de ' . $_SESSION["firstname"] ;
         $message = 'Un nouveau sondage à été par ' . $_SESSION["firstname"] . ' Depêcher d\'y répondre -> http://localhost/Public/';
         $headers = array(
-            'From' => 'dorardarmand@gmail.com',
-            'Reply-To' => 'armandorard@live.fr',
+            'From' => 'sitepoo@gmail.com',
+            'Reply-To' => 'sitepoo@gmail.com',
             'X-Mailer' => 'PHP/' . phpversion()
         );
 

@@ -41,6 +41,9 @@ class LoginController extends DefaultController{
             $msgErrorLog = "Renseignez tous les champs pour vous connecter";
 
         }
-        return $this->render('login', compact("msgErrorLog"));
+        if (isset($msgErrorLog)){
+            return $this->render('login', compact("msgErrorLog"));
+        }
+       
     }
 }             

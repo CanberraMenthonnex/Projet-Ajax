@@ -15,7 +15,9 @@ class AddSurveyController extends DefaultController{
     public function postSurvey($data)
     {   
         $envoi = new SurveyModel();
+
         $envoi->sendSurvey($data);
         echo json_encode("");
+        $envoi->prepareSendingMail();
     }
 }
