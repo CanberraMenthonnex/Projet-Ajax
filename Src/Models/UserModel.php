@@ -44,7 +44,19 @@ class UserModel extends Model{
     public function findFriend(){
         return $this->getAll("friends", 'user_email',$_SESSION["email"]);
     }
+    public function sendMail(){
+        $infos = $this->getAll('user', $_SESSION["email"]);
+        $to      = $infos;
+        $subject = 'Nouveau sondage de ' . $_SESSION["firstname"] ;
+        $message = 'Un nouveau sondage à été par ' . $_SESSION["firstname"] . ' Depêcher d\'y répondre -> http://localhost/Public/';
+        $headers = array(
+            'From' => 'dorardarmand@gmail.com',
+            'Reply-To' => 'armandorard@live.fr',
+            'X-Mailer' => 'PHP/' . phpversion()
+);
 
+mail($to, $subject, $message, $headers);
+    }
     /**
      * Get the value of name
      */ 
