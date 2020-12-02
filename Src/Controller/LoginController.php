@@ -32,7 +32,7 @@ class LoginController extends DefaultController{
             $userInfos = new UserModel($email, $password);
             $compare = $userInfos->searchId();
             if($compare){
-                if($compare["password"] == $password){
+                if(password_verify($password, $compare['password'])){
                     Session::set($compare);
                     $session = $_SESSION;
                     $userInfos->setConnection(1, $_SESSION['email']);
