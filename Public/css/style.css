@@ -14,17 +14,27 @@ body{
 }
 h1{
     margin: 10px;
-    color: white;
+    color: blanchedalmond;
 }
 h2{
     margin: 10px;
+    color: blanchedalmond;
+    text-decoration: underline;
 }
 a{
     color: white;
+    border :solid black;
+    margin-top: 20px;
+    padding: 2px;
+    border-radius: 5px;
+    text-decoration: none;
 }
 #doIt{
     text-decoration: none;
-    font-size: 50px;
+    font-size: 20px;
+    border:solid;
+    padding: 5px;
+    border-radius: 5px;
 }
 p{
     color: white;
@@ -35,9 +45,16 @@ form{
 }
 input{
     margin: 10px;
+    border-radius: 5px;
+    border: none;
 }
 button{
     margin: 10px;
+    border-radius: 5px;
+    border: none;
+}
 
+span{
+    width: 10px;
 }
 

@@ -25,7 +25,8 @@
     <?= "<a href=" . $_GET["page"] = "?page=sign" . ">Pas encore de compte</a>"; 
         
     ?>
-
+            <br>
+        <a href="?page=home">Retour à l'accueil</a>
 
 </body>
 </html>

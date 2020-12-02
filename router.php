@@ -96,7 +96,8 @@ if(array_key_exists("page", $_GET)){
             
             
         default:
-            echo "Error 404: vous avez perdu 0.404 de QI";
+            echo "Error 404: vous avez perdu 0.404 de QI :) <br>";
+            echo "<a href='?page=home'>Retour à l'accueil</a>";
             break;
     }
 } else{

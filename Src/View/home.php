@@ -18,6 +18,7 @@
         
             echo "Bonjour " . $_SESSION['firstname'] . ", alias : " . $_SESSION['pseudo'];
             echo "<br><a href=?page=profil>Votre page profil</a>";
+            echo "<h2>La liste des sondages de vos amis :</h2>";
         }else{
             echo "<a id='doIt' href=?page=login>Connect your self</a>";
         }
@@ -25,7 +26,7 @@
     ?>
 
     <article id="surveyList">
-        <h2>La liste des sondages de vos amis :</h2>
+        
 
     </article>
 

@@ -25,6 +25,8 @@
 
     ?>
 
+    <h2>Accéder aux avis de sondage</h2>
+    <a href="?page=result">Voir avis</a>
     <h2>Retour à la homepage</h2>
     <a href="?page=home">retour à la page principale</a>
     

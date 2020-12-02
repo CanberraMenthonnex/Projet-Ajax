@@ -9,7 +9,7 @@ $( document ).ready(function(){
                 $("#surveyList").append(
                 `<p>${message.user}</p>`,
                 `<p>${message.question}</p>`,
-                `<p>${message.answer_1}${message.answer_2}${message.answer_3}${message.answer_4}</p>`,
+                `<p>${message.answer_1} ${message.answer_2} ${message.answer_3} ${message.answer_4}</p>`,
                 "<hr>"
                 )
             })

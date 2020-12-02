@@ -24,9 +24,11 @@ $( "form" ).submit(function( event ) {
         success:function(response){
             
             console.log("Sucess");
+            $("#respond").append("Survey non crée");
         },
         error :function(){
             console.log("error");
+            $("#respond").append("Survey ajouté");
         }
     })
   });

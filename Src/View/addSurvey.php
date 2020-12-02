@@ -20,8 +20,14 @@
 
             <button id="sendForm" type="submit">Créer</button>
         </form>
+        <p id="respond">Message:</p>
+        <br>
 
         <button id="resetButton">Reset</button>
+
+
+        <br>
+        <a href="?page=home">Retour à l'accueil</a>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/newSurvey.js"></script>
