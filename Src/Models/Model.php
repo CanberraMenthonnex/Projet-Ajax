@@ -12,11 +12,13 @@ class Model{
 
 
     public function insert(string $table, array $infos){
+        $mdpCrypted = password_hash($infos['password'], PASSWORD_DEFAULT);
+        var_dump($mdpCrypted);
         $request = $this->_db->prepare("INSERT INTO $table (firstname, lastname, pseudo, password, email, status) VALUES (:firstname, :lastname, :pseudo, :password, :email, :status)");
         $request->bindValue(":firstname", $infos['firstname']);
         $request->bindValue(":lastname", $infos['lastname']);
         $request->bindValue(":pseudo", $infos['pseudo']);
-        $request->bindValue(":password", $infos['password']);
+        $request->bindValue(":password", $mdpCrypted);
         $request->bindValue(":email", $infos['email']);
         $request->bindValue(":status", 0);
         $request->execute();
