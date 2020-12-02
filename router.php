@@ -85,6 +85,12 @@ if(array_key_exists("page", $_GET)){
             $controller->getMessage();
             break;
 
+        case 'searchFriend':
+            $controller = new ProfilController();
+            $controller->searchFriend($_POST);
+            break;
+            
+            
         default:
             echo "Error 404: vous avez perdu 0.404 de QI";
             break;

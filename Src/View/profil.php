@@ -18,5 +18,16 @@
             echo $friend["friend"] . "<br>";
         }
     ?>
+
+    
+    <article>
+        <h2>Add friend</h2>
+        <form>
+            <label for="addFriend">Ajout d'un ami<input type="text" name="addFriend" id="inputAddFriend" placeholder="email de votre ami"></label>
+            <button type="submit" id="buttonSearch">Recherchez</button>
+        </form>
+    </article>
+
+<script src="./js/addFriend.js"></script>
 </body>
 </html>
