@@ -17,11 +17,12 @@ class LoginController extends DefaultController{
 
     
     public function logOut(){
-        $userInfos = new UserModel($_SESSION["email"], $_SESSION["password"]);
-        $userInfos->update('user', 'status', '0');
-        $session = new Session();
-        var_dump($session->clean($_SESSION['firstname']));
-        //$this->renderLogin();
+        if($_SESSION){
+            $userInfos = new UserModel($_SESSION["email"], $_SESSION["password"]);
+            $userInfos->update('user', 'status', '0');
+            session_destroy();
+        }        
+        $this->renderLogin();
     }
 
     public function log(){
