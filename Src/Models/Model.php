@@ -45,8 +45,9 @@ class Model{
     }
 
     public function addFriend(string $table, string $user, string $newFriend){
-        $request = $this->_db->prepare("INSERT INTO $table (user_email,friend) VALUES (:$user, :$newFriend)");
-        $request->execute();
+        var_dump($user);
+        var_dump($newFriend);
+        $request = $this->_db->query("INSERT INTO $table (user_email , friend) VALUES ('$user' , '$newFriend')");
     }
 
 }

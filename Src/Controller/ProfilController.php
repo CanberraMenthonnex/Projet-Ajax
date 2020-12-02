@@ -3,7 +3,6 @@
 namespace Src\controller;
 
 use Core\Controller\DefaultController;
-use Core\Tools\Session;
 use Src\Models\UserModel;
 use Src\Models\Model;
 
@@ -27,14 +26,17 @@ class ProfilController extends DefaultController{
     }
 
     public function searchFriend($friend){
+        // var_dump($friend);
+        $newFriend = $friend["content"];
+        
         $query = new Model();
-        $find = $query->getOne("user", "email", $friend);
+        $find = $query->getOne("user", "email", $newFriend);
         if($find === false){
-            echo json_encode("false");
+            echo json_encode("Ami non trouvé");
         }else{
-            $query->addFriend("friend", $_SESSION["email"], $friend);
-            $query->addFriend("friend", $friend, $_SESSION["email"]);
-            echo json_encode("");
+            $query->addFriend("friends", $_SESSION["email"], $newFriend);
+            $query->addFriend("friends", $newFriend, $_SESSION["email"]);
+            echo json_encode("Ami ajouté");
         }
 
     }
