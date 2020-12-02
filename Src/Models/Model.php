@@ -2,6 +2,8 @@
 
 namespace Src\Models;
 
+require "../../Configuration/configDb.php";
+
 class Model{
     protected $_db;
 

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <h1>Page d'acceuil</h1>
+    <h1>Home Page</h1>
 
     <?php 
 
