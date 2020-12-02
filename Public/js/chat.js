@@ -31,8 +31,3 @@ function renderMessages()
     })
 }
 
-
-$('#deco').click(function(e){
-    session_destroy ();
-
-});

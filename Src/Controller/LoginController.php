@@ -36,6 +36,8 @@ class LoginController extends DefaultController{
                 }else{
                     $msgErrorLog = "Identifiant et/ou mot de passe incorrect";
                 }
+            }else{
+                $msgErrorLog = "Identifiant et/ou mot de passe incorrect";
             }
         }else{
             $msgErrorLog = "Renseignez tous les champs pour vous connecter";

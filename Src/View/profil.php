@@ -9,7 +9,7 @@
 <body>
     <h1>Profil</h1>
 
-    <h2>Lances toi et ajoute un sondage</h2>
+    <h2>Lances toi et ajoutes un sondage</h2>
     <a href="?page=addSurvey">Hello there</a>
 
     <?php

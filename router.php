@@ -45,7 +45,7 @@ if(array_key_exists("page", $_GET)){
             $controller = new SignController();
             $controller->renderSign();
             break;
-    
+        
 
         // Méthode POST => traitement
         case 'logCheck':
@@ -68,7 +68,11 @@ if(array_key_exists("page", $_GET)){
             $controller = new AddSurveyController();
             $controller->postSurvey($_POST);
             break;
-        
+
+        case 'getSurvey':
+            $controller = new HomeController();
+            $controller->displayFriendSurvey($_SESSION["email"]);
+            break;
         //chat
 
         case 'postMessage':

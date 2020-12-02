@@ -4,19 +4,13 @@ namespace Src\Models;
 
 class UserModel extends Model{
 
-    // protected $firstname;
-    // protected $lastname;
-    // protected $pseudo;
     protected $email;
     protected $pwd;
-    // protected $status = 0;
+
 
     public function __construct(/*$firstname, $lastname, $pseudo,*/ $email, $pwd)
     {
         parent::__construct();
-        // $this->firstname = $firstname;
-        // $this->lastname = $lastname;
-        // $this->pseudo = $pseudo;
         $this->email = $email;
         $this->pwd = $pwd;
     }
@@ -44,43 +38,8 @@ class UserModel extends Model{
     public function findFriend(){
         return $this->getAll("friends", 'user_email',$_SESSION["email"]);
     }
-    /**
-     * Get the value of name
-     */ 
-    public function getEmail()
-    {
-        return $this->email;
-    }
 
-    /**
-     * Get the value of pwd
-     */ 
-    public function getPwd()
-    {
-        return $this->pwd;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */ 
-    public function setName($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Set the value of pwd
-     *
-     * @return  self
-     */ 
-    public function setPwd($pwd)
-    {
-        $this->pwd = $pwd;
-
-        return $this;
+    public function getSurvey($userEmail){
+        return $this->getFriendSurvey($userEmail);
     }
 }
