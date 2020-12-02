@@ -1,5 +1,5 @@
 <?php
-
+require "../Configuration/configDb.php";
 define("ROOT", dirname(__DIR__));
 $path = explode("index.php", $_SERVER["SCRIPT_NAME"]);
 $path = "http://".$_SERVER["HTTP_HOST"].$path[0];

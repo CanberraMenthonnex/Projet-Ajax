@@ -2,14 +2,12 @@
 
 namespace Src\Models;
 
-require "../../Configuration/configDb.php";
-
 class Model{
     protected $_db;
-
+    
     public function __construct(){
         
-        $this->_db = new \PDO('mysql:host=localhost;dbname=data_base; charset=utf8', "root", "root", array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ));
+        $this->_db = new \PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . '; charset=utf8',  DB_USERNAME  , DB_PASSWORD , array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ));
     }
 
 
