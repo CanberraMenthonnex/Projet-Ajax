@@ -8,9 +8,10 @@
 </head>
 <body>
     <h1>Profil</h1>
+    <a href="?page=logout">Déconnexion</a>
 
     <h2>Lances toi et ajoutes un sondage</h2>
-    <a href="?page=addSurvey">Hello there</a>
+    <a href="?page=addSurvey">Ajouter un sondage</a>
 
     <?php
         echo "<h2>Votre liste d'amis : <br></h2>";
