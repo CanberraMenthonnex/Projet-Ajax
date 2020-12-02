@@ -35,8 +35,8 @@ class Model{
         return $result = $request->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function update(string $table, string $champs, string $value){
-       $this->_db->query("UPDATE $table SET $champs=" . "'$value'");
+    public function updateStatus(int $status, string $email){
+       $this->_db->query("UPDATE user SET status = $status WHERE email=" ."'$email'");
     }
 
     public function getFriendSurvey(string $userEmail){
