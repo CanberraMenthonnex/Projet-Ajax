@@ -44,4 +44,9 @@ class Model{
         return $result = $request->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function addFriend(string $table, string $user, string $newFriend){
+        $request = $this->_db->prepare("INSERT INTO $table (user_email,friend) VALUES (:$user, :$newFriend)");
+        $request->execute();
+    }
+
 }
