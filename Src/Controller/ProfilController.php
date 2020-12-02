@@ -17,12 +17,19 @@ class ProfilController extends DefaultController{
 
     public function displayFriend(){
 
+        if(isset($_SESSION["firstname"])){
+
         $email= $_SESSION["email"];
         $pwd = $_SESSION["password"];
 
         $friendList = new UserModel($email,$pwd);
         $friendDisp = $friendList->findFriend();
         return $this->render("profil",compact("friendDisp"));
+        
+    }else{
+        return $this->render("home");
+    }
+
     }
 
     public function searchFriend($friend){

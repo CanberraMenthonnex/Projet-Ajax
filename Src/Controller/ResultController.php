@@ -28,9 +28,8 @@ class ResultController extends DefaultController{
     public function sendMessage($data)
     {   
 
-        $_db = new \PDO("mysql:host=localhost;dbname=data_base", "root", "root");
-        $prepare = $_db->prepare("INSERT INTO chat (message) VALUES (:content)");
-        $prepare->execute($data);
+        $message = new SurveyModel();
+        $message->sendMessage($data);
         echo json_encode("");
         
     }

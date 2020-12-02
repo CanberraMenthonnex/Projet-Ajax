@@ -17,6 +17,12 @@ class SurveyModel extends Model{
     }
 
 
+    public function sendMessage($data){
+        $prepare = $this->_db->prepare("INSERT INTO chat (message) VALUES (:content)");
+        $prepare->execute($data);
+    }
+
+
     // public function postMessage($data){
     //     $prepare = $this->_db->prepare("INSERT INTO chat (content) VALUES (:content)");
     //     $prepare->execute($data);

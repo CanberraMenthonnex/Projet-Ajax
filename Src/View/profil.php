@@ -14,12 +14,19 @@
     <a href="?page=addSurvey">Ajouter un sondage</a>
 
     <?php
-        echo "<h2>Votre liste d'amis : <br></h2>";
-        foreach($friendDisp as $friend){
-            echo $friend["friend"] . "<br>";
+        if(isset($_SESSION["firstname"])){
+            echo "<h2>Votre liste d'amis : <br></h2>";
+            foreach($friendDisp as $friend){
+                echo $friend["friend"] . "<br>";
+            }
+        }else{
+
         }
+
     ?>
 
+    <h2>Retour à la homepage</h2>
+    <a href="?page=home">retour à la page principale</a>
     
     <article>
         <h2>Add friend</h2>
