@@ -58,9 +58,13 @@ class SignController extends DefaultController{
 
             if(!$sign_error){
                 $model = new UserModel($email, $password);
-                $model->addUser($_POST);
-                return $this->render('home');   
-
+                if($model->searchId()){
+                    $that_fcking_error = "Cet email existe déjà";
+                }
+                else{
+                    $model->addUser($_POST);
+                    return $this->render('home'); 
+                }
             }else{
                 $that_fcking_error = $sign_error[0][0];                
             }

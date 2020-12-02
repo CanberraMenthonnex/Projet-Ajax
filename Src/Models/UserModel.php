@@ -21,7 +21,6 @@ class UserModel extends Model{
     //     return $infos;
     // }
     public function searchId(){
-        // $model = new Model();
         $infos = $this->getOne('user', 'email',$this->email);
 
         return $infos;

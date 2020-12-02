@@ -4,7 +4,6 @@ namespace Src\controller;
 
 use Core\Controller\DefaultController;
 use Src\Models\UserModel;
-use Src\Models\Model;
 use Core\Tools\Session;
 
 class LoginController extends DefaultController{
@@ -16,7 +15,14 @@ class LoginController extends DefaultController{
         // require ROOT."/Src/View/Home.php";
     }
 
-
+    
+    public function logOut(){
+        $userInfos = new UserModel($_SESSION["email"], $_SESSION["password"]);
+        $userInfos->update('user', 'status', '0');
+        $session = new Session();
+        var_dump($session->clean($_SESSION['firstname']));
+        //$this->renderLogin();
+    }
 
     public function log(){
         if($this->checkPostKeys($_POST,["email","password"])){

@@ -3,6 +3,7 @@
 namespace Src\controller;
 
 use Core\Controller\DefaultController;
+use Core\Tools\Session;
 use Src\Models\UserModel;
 use Src\Models\Model;
 
@@ -14,7 +15,6 @@ class ProfilController extends DefaultController{
         return $defControl->render("profil");
         // require ROOT."/Src/View/Home.php";
     }
-
 
     public function displayFriend(){
 

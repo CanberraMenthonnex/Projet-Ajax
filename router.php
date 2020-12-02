@@ -33,6 +33,10 @@ if(array_key_exists("page", $_GET)){
             $controller = new LoginController();
             $controller->renderLogin();
             break;
+        case 'logout':
+            $controller = new LoginController();
+            $controller->logOut();
+            break;
         // case 'profil':
         //     $controller = new ProfilController();
         //     $controller->renderProfil();
