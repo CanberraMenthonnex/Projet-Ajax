@@ -30,8 +30,8 @@ class UserModel extends Model{
         $this->insert('user', $infos);
     }
 
-    public function setConnection(){
-        $this->update('user', 'status', '1');
+    public function setConnection(int $status, string $email){
+        $this->updateStatus($status, $email);
     }
 
     public function findFriend(){

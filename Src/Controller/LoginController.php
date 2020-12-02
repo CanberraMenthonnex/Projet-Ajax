@@ -19,7 +19,7 @@ class LoginController extends DefaultController{
     public function logOut(){
         if($_SESSION){
             $userInfos = new UserModel($_SESSION["email"], $_SESSION["password"]);
-            $userInfos->update('user', 'status', '0');
+            $userInfos->setConnection(0, $_SESSION['email']);
             session_destroy();
         }        
         $this->renderLogin();
@@ -35,7 +35,7 @@ class LoginController extends DefaultController{
                 if($compare["password"] == $password){
                     Session::set($compare);
                     $session = $_SESSION;
-                    $userInfos->update('user', 'status', '1');
+                    $userInfos->setConnection(1, $_SESSION['email']);
                     $sendFname = $compare['firstname'];
                     return $this->render('home', compact("session", "sendFname"));
 
